@@ -1,4 +1,4 @@
-(ns ffmpeg.core
+(ns ffmpeg-clj.core
   (:require 
    [clojure.java.shell :refer [sh]]
    [clojure.string :as s]))
