@@ -14,11 +14,10 @@
 
 (defn ffmpeg! [& args]
   (let [cmd! (apply sh (apply cmd args))
-        {:keys [exit out error]} cmd!]
-    (when (= exit 1) 
-      (println out)
+        {:keys [exit out err]} cmd!]
+    (when-not (zero? exit)
       (throw
-       (Exception. error)))
+       (Exception. err)))
       out))
 
 (defn version [] 
